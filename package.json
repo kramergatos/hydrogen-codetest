@@ -1,0 +1,23 @@
+{
+  "name": "hydrogen-codetest",
+  "version": "1.0.0",
+  "description": "## Code Test Make a mock ‘GET Transactions’ REST API endpoint to pull transactions for a payroll debit card used by a company on the platform. Show the request and response with all of the fields. You are free to use any software or means of showing the API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kramergatos/hydrogen-codetest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kramergatos/hydrogen-codetest/issues"
+  },
+  "homepage": "https://github.com/kramergatos/hydrogen-codetest#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.1.5",
+    "joi": "^17.4.2"
+  }
+}
