@@ -1,6 +1,7 @@
 'use strict'
 const Hapi = require('@hapi/hapi')
 const Joi = require('joi')
+Joi.objectId = require('joi-objectid')(Joi)
 const sampleData = {
   "content": [
     {
@@ -93,13 +94,27 @@ const init = async () => {
     port: 3000,
     host: 'localhost'
   })
+  /*await server.register({
+    plugin: require('hapi-mongodb'),
+    options: {
+      url: 'mongodb+srv://{YOUR-USERNAME}:{YOUR-PASSWORD}@domain.com',
+      settings: {
+        useUnifiedTopology: true
+      },
+      decorate: true
+    }
+  })*/
   server.route({
     method: 'GET',
     path: '/card/{card_id}/transaction',
     handler: (request, h) => {
-      console.log(`REQUEST GET /card/${request.params.card_id}/transaction`)
-      console.log(`RESPONSE ${JSON.stringify(sampleData)}`)
-      return sampleData
+      const id = request.params.card_id
+      /*const ObjectID = req.mongo.ObjectID
+      const transactions = await req.mongo.db.collection('card_transactions').find({card_id: new ObjectID(id)}).sort({date:-1}).skip(offset).limit(20).toArray()*/
+      const transactions = sampleData
+      console.log(`REQUEST GET /card/${id}/transaction`)
+      console.log(`RESPONSE ${JSON.stringify(transactions)}`)
+      return transactions
     },
     options: {
       validate: {
